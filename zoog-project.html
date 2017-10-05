@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title>p5js Template</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.3/p5.js"></script>
+    
+    <script>
+        function setup() {
+            createCanvas(800,600);
+        }
+
+        function draw() {
+        fill('white')
+           stroke('black')
+           strokeWeight(3)
+          
+           fill('black')
+          rect(170,375,40,50)
+          rect(275,375,40,50)
+          
+          fill('white')
+           ellipse(245,300,250,180)
+          
+           fill('black')
+          strokeWeight(9)
+          line(130,270,260,300)
+          line(360,270,225,300)
+          
+          strokeWeight(3)
+           fill('black')
+           ellipse(130,100,100,100)
+           ellipse(370,100,100,100)
+           
+           fill('white')
+          ellipse(250,150,250,150)
+         
+           fill('black')
+          triangle(225, 170, 270, 170, 250, 185);
+          
+         fill('black')
+          ellipse(200,140,60,60)
+          ellipse(300,140,60,60)
+          
+          fill('white')
+          ellipse(200,145,20,20)
+          ellipse(300,145,20,20)
+          
+          stroke('white')
+          fill('darkgreen')
+          textSize(17)
+          strokeWeight(1)
+         text('I ate too much bamboo!',155,350)
+         
+        }
+    </script>
+</head>
+
+<body>
+    <div id="code" class="container-fluid">
+        <script src="https://gist-it.appspot.com/github/samaraf5824/p5js/blob/gh-pages/zoog-project.html?footer=0"></script>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+        $(window).bind("load", function() {
+            $('#code').before($('#defaultCanvas0').remove());
+        });
+    </script>
+</body>
+
+
+
+</html>
