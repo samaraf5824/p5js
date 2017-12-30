@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+  <title>Pong</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.13/p5.js"></script>
+  <script>
+    var ballX;//creates variable
+    var ballY;//creates variable
+    var ballSpeedX = 0;//creates variable
+    var ballSpeedY = 0;//creates variable
+    var paddleHeight = 30;//creates variable
+    var paddleWidth = 200//creates variable
+    var score = 0//creates variable
+    var lives = 3//creates variable
+    function setup() {
+
+      createCanvas(800, 600);//size of canvas
+      noCursor();// so that mouse doesn't show up
+      ballX = random(width);//starts x at random width
+      ballY = random(height / 2);//starts y in middle
+    }
+
+    function draw() {
+
+      background(random(750),random(145),random(800)) //resets background
+      moveBall();//includes the function
+      checkCollide();//includes the function
+      drawPaddle();//includes the function
+      drawBall();//includes the function
+      scoreboard();//includes the function
+      life();//includes the function
+    }
+
+    function moveBall() {
+      ballX = ballX + ballSpeedX;//makes the value of ballX become 5
+      ballY = ballY + ballSpeedY;//makes the value of ballY become 5
+
+      console.log("ballSpeedX: " + ballSpeedX +
+        ", ballSpeedY: " + ballSpeedY);
+    }
+
+    function checkCollide() {
+
+      if (ballX < 0 || ballX > width) { //x less than 0 or x greater than width
+        ballSpeedX = ballSpeedX * -1;//speedx will change
+      }
+      if (ballY < 0) {//y less than 0
+        ballSpeedY = ballSpeedY * -1;//speedy will change
+      }
+      if (ballY > height - paddleHeight) {//y greater than outcome of height-paddle height
+        if (ballX > mouseX && ballX < mouseX + 200) {  //both x greater than mouseX & x less than the sum
+          ballSpeedY = ballSpeedY * 1.5; // makes speed increase
+          ballSpeedX = ballSpeedX * 1.5; //makes speed increase
+          paddleWidth -= 10 // makes paddle smaller
+          score += 1 // adds a score
+        }
+        else {
+         text("Try Again Next Time!", width / 2, height / 2); //what text says and placement
+                    lives -= 1 // takes a life
+          noLoop();
+        }
+      }
+    }
+
+    function drawBall() {
+      noStroke(); // no boldness
+      ellipse(ballX, ballY, 20, 20); //placement and look of it
+    }
+
+    function drawPaddle() {
+      strokeWeight(2); // the boldness of the paddle
+      fill(255)  // the color filled is white
+      rect(mouseX, height - paddleHeight - 4, paddleWidth, paddleHeight);// how it looks and where its places
+
+    }
+
+    function mousePressed() {
+      if (ballSpeedX == 0) {
+        ballSpeedX = 5
+        ballSpeedY = 5
+
+      }
+    }
+
+      function scoreboard() {
+        strokeWeight(25) //give the text a type of boldness
+        fill(0) // the text color is black
+        textSize(20) // size of text is 20
+        text("Score:" + score, 690, 20) // draws the text and places it at a certain location
+      }
+ function life(){
+       strokeWeight(25) //give the text a type of boldness
+        fill(0)// the text color is black
+        textSize(20)// size of text
+         text("Lives:" + lives, 100,20)// where it appears
+       
+      }
+    
+  </script>
+</head>
+
+<body>
+<body>
+<form><input TYPE="button" onClick="history.go(0)" value="Reset"></form>
+    <div id="code" class="container-fluid">
+        <script src="https://gist-it.appspot.com/github/SAMARAF5824/p5js/blob/gh-pages/PONG-REMIX.html?footer=0"></script>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+        $(window).bind("load", function() {
+            $('#code').before($('#defaultCanvas0').remove());
+        });
+    </script>
+</body>
+
+</body>
