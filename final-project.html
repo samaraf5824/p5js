@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title>Objects: Cars with Parameters</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.13/p5.js"></script>
+    <script>
+    
+   var spots = []; 
+
+   function setup() {
+   createCanvas(710, 400);
+   
+   for (var i=0; i<50; i++) {
+   spots.push(new art());
+  }
+}
+
+   function draw() {
+   for (var i=0; i<spots.length; i++) {
+   spots[i].move();
+   spots[i].display();
+  }
+}
+
+  function art() {
+  this.x = random(width);
+  this.y = random(height);
+  this.diameter = random(10, 30);
+  this.speed = 2;
+
+   this.move = function() {
+   this.x += random(-this.speed, this.speed);
+   this.y += random(-this.speed, this.speed);
+  }
+
+  this.display = function() {
+    ellipse(this.x, this.y, this.diameter, this.diameter);
+  }
+
+}
+  function mousePressed() {
+   stroke(0)
+   fill(random(229),random(355),random(567))
+   this.speed+1
+   spots.push(new Spots);
+  }
+  
+  
+   
+   
+  
+   
+   
+    </script>
+</head>
+
+<body>
+<form><input TYPE="button" onClick="history.go(0)" value="Reset"></form>
+    <div id="code" class="container-fluid">
+        <script src="https://gist-it.appspot.com/github/SAMARAF5824/p5js/blob/master/FINAL-PROJECT.html?footer=0"></script>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+        $(window).bind("load", function() {
+            $('#code').before($('#defaultCanvas0').remove());
+        });
+    </script>
+</body>
+
+
+</html>
